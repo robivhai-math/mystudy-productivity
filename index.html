@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="ব্যক্তিগত প্রোডাক্টিভিটি ড্যাশবোর্ড ও পোমোডোরো ট্র্যাকার"
+  />
+  <title>প্রোডাক্টিভিটি ড্যাশবোর্ড</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">●</div>
+        <div>
+          <h1>প্রোডাক্টিভিটি ড্যাশবোর্ড</h1>
+          <p>পোমোডোরো ট্র্যাকার</p>
+        </div>
+      </div>
+
+      <div class="live-clock" aria-live="polite">
+        <div id="currentDate">লোড হচ্ছে...</div>
+        <div id="currentTime">লোড হচ্ছে...</div>
+      </div>
+    </header>
+
+    <main>
+      <!-- লাইফটাইম পরিসংখ্যান -->
+      <section class="stats-grid" aria-label="সর্বমোট পরিসংখ্যান">
+        <article class="stat-card">
+          <div class="stat-icon">●</div>
+          <div>
+            <p class="stat-label">সর্বমোট বাবল</p>
+            <strong id="totalBubbles">০</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon cycle-icon">◉</div>
+          <div>
+            <p class="stat-label">সর্বমোট সাইকেল</p>
+            <strong id="totalCycles">০</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon hour-icon">◷</div>
+          <div>
+            <p class="stat-label">সর্বমোট ঘণ্টা</p>
+            <strong id="totalHours">০</strong>
+          </div>
+        </article>
+      </section>
+
+      <!-- পোমোডোরো টাইমার -->
+      <section class="panel timer-panel">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">পোমোডোরো</span>
+            <h2>ফোকাস টাইমার</h2>
+          </div>
+
+          <div class="timer-mode" id="timerMode">ফোকাস</div>
+        </div>
+
+        <div class="timer-display-wrap">
+          <div class="timer-ring">
+            <div class="timer-display" id="timerDisplay">২৫:০০</div>
+            <div class="timer-caption" id="timerCaption">
+              মনোযোগ দিয়ে কাজ করুন
+            </div>
+          </div>
+        </div>
+
+        <div class="timer-controls">
+          <button class="btn btn-primary" id="startBtn" type="button">
+            শুরু
+          </button>
+
+          <button class="btn btn-secondary" id="pauseBtn" type="button">
+            থামান
+          </button>
+
+          <button class="btn btn-secondary" id="resetBtn" type="button">
+            রিসেট
+          </button>
+        </div>
+
+        <p class="timer-hint">
+          ২৫ মিনিট ফোকাস শেষ হলে স্বয়ংক্রিয়ভাবে ৫ মিনিটের বিরতি শুরু হবে এবং
+          পরবর্তী খালি বাবল পূরণ হবে।
+        </p>
+      </section>
+
+      <!-- দৈনিক বাবল -->
+      <section class="panel">
+        <div class="section-heading daily-heading">
+          <div>
+            <span class="eyebrow">আজকের অগ্রগতি</span>
+            <h2>৪৮ বাবলের দিন</h2>
+          </div>
+
+          <div class="daily-progress">
+            <strong id="dailyBubbleCount">০ / ৪৮</strong>
+            <span id="dailyCycleCount">০ সাইকেল</span>
+          </div>
+        </div>
+
+        <div class="bubble-legend">
+          <span>
+            <i class="legend-dot completed"></i>
+            সম্পন্ন
+          </span>
+
+          <span>
+            <i class="legend-dot empty"></i>
+            খালি
+          </span>
+        </div>
+
+        <div
+          id="bubbleGrid"
+          class="bubble-grid"
+          aria-label="আজকের ৪৮টি বাবল"
+        ></div>
+      </section>
+
+      <!-- ইতিহাস -->
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">অতীতের তথ্য</span>
+            <h2>ইতিহাস</h2>
+          </div>
+
+          <div class="history-info">স্থানীয়ভাবে সংরক্ষিত</div>
+        </div>
+
+        <div class="history-wrapper">
+          <div class="history-header">
+            <span>তারিখ</span>
+            <span>বাবল</span>
+            <span>সাইকেল</span>
+            <span>ঘণ্টা</span>
+          </div>
+
+          <div id="historyList" class="history-list"></div>
+
+          <div id="emptyHistory" class="empty-history">
+            এখনো কোনো পূর্ববর্তী দিনের রেকর্ড নেই।
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>আপনার অগ্রগতি আপনার ডিভাইসেই সংরক্ষিত থাকে।</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
