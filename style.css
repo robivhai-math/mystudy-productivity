@@ -1,0 +1,743 @@
+:root {
+  --bg-main: #0f172a;
+  --bg-secondary: #111c31;
+  --bg-panel: rgba(15, 23, 42, 0.82);
+  --bg-panel-light: #182338;
+
+  --border: rgba(148, 163, 184, 0.14);
+  --border-strong: rgba(148, 163, 184, 0.23);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --mint: #6ee7b7;
+  --mint-soft: rgba(110, 231, 183, 0.12);
+  --mint-strong: #34d399;
+
+  --blue: #60a5fa;
+  --danger: #f87171;
+
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
+
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    "SolaimanLipi",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--text-primary);
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(96, 165, 250, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(110, 231, 183, 0.06),
+      transparent 28%
+    ),
+    var(--bg-main);
+
+  line-height: 1.6;
+}
+
+/* স্ক্রলবার */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* মূল কনটেইনার */
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+/* হেডার */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(110, 231, 183, 0.24);
+  border-radius: 14px;
+
+  color: var(--mint);
+  background: var(--mint-soft);
+
+  box-shadow: 0 8px 25px rgba(110, 231, 183, 0.08);
+
+  font-size: 19px;
+}
+
+.brand h1 {
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.brand p {
+  margin-top: 2px;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+}
+
+.live-clock {
+  text-align: right;
+  color: var(--text-secondary);
+}
+
+#currentDate {
+  font-size: 0.85rem;
+}
+
+#currentTime {
+  margin-top: 2px;
+  color: var(--text-primary);
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* স্ট্যাটস */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  min-height: 116px;
+  padding: 22px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(24, 35, 56, 0.92),
+    rgba(15, 23, 42, 0.85)
+  );
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  color: var(--mint);
+  background: var(--mint-soft);
+
+  font-size: 18px;
+}
+
+.cycle-icon {
+  color: var(--blue);
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.hour-icon {
+  color: #c4b5fd;
+  background: rgba(196, 181, 253, 0.1);
+}
+
+.stat-label {
+  margin-bottom: 2px;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  font-weight: 750;
+}
+
+/* প্যানেল */
+
+.panel {
+  margin-bottom: 20px;
+  padding: 26px;
+
+  background: var(--bg-panel);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(14px);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 3px;
+
+  color: var(--mint);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.timer-mode,
+.history-info {
+  padding: 7px 11px;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  color: var(--text-secondary);
+  background: rgba(148, 163, 184, 0.06);
+
+  font-size: 0.78rem;
+}
+
+/* টাইমার */
+
+.timer-panel {
+  text-align: center;
+}
+
+.timer-panel .section-heading {
+  text-align: left;
+}
+
+.timer-display-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0 26px;
+}
+
+.timer-ring {
+  width: min(320px, 76vw);
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(110, 231, 183, 0.08) 0%,
+      rgba(15, 23, 42, 0.3) 58%,
+      rgba(15, 23, 42, 0) 59%
+    );
+
+  border: 1px solid rgba(110, 231, 183, 0.15);
+
+  box-shadow:
+    inset 0 0 50px rgba(110, 231, 183, 0.03),
+    0 0 70px rgba(110, 231, 183, 0.045);
+}
+
+.timer-display {
+  font-family:
+    "Courier New",
+    "Noto Sans Bengali",
+    monospace;
+
+  font-size: clamp(3.8rem, 11vw, 6.2rem);
+  line-height: 1;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  color: var(--text-primary);
+
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-caption {
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  min-width: 110px;
+  min-height: 46px;
+  padding: 0 20px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  color: #062017;
+  background: var(--mint);
+  box-shadow: 0 8px 24px rgba(110, 231, 183, 0.16);
+}
+
+.btn-primary:hover {
+  background: #8af0ca;
+  box-shadow: 0 10px 28px rgba(110, 231, 183, 0.22);
+}
+
+.btn-secondary {
+  color: var(--text-primary);
+  background: #172236;
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  background: #1d2a42;
+  border-color: var(--border-strong);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  box-shadow: none;
+  transform: none;
+}
+
+.timer-hint {
+  max-width: 650px;
+  margin: 18px auto 0;
+
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+/* দৈনিক বাবল */
+
+.daily-heading {
+  margin-bottom: 18px;
+}
+
+.daily-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.daily-progress strong {
+  color: var(--mint);
+  font-size: 1rem;
+}
+
+.daily-progress span {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+}
+
+.bubble-legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.bubble-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-dot {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+
+  border-radius: 50%;
+}
+
+.legend-dot.completed {
+  background: var(--mint);
+  box-shadow: 0 0 12px rgba(110, 231, 183, 0.35);
+}
+
+.legend-dot.empty {
+  border: 1px solid #475569;
+  background: #1e293b;
+}
+
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(22px, 1fr));
+  gap: 14px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.bubble {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  border: 1px solid #334155;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.045),
+      transparent 40%
+    ),
+    #172236;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.025),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.bubble:hover {
+  transform: scale(1.08);
+  border-color: rgba(110, 231, 183, 0.5);
+}
+
+.bubble:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+
+.bubble.completed {
+  border-color: transparent;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.35),
+      transparent 32%
+    ),
+    var(--mint);
+
+  box-shadow:
+    0 0 0 3px rgba(110, 231, 183, 0.08),
+    0 7px 18px rgba(110, 231, 183, 0.2);
+
+  animation: bubble-pop 260ms ease-out;
+}
+
+@keyframes bubble-pop {
+  0% {
+    transform: scale(0.75);
+  }
+
+  65% {
+    transform: scale(1.13);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ইতিহাস */
+
+.history-wrapper {
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: rgba(15, 23, 42, 0.42);
+}
+
+.history-header,
+.history-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.history-header {
+  min-height: 46px;
+  padding: 0 16px;
+
+  background: rgba(148, 163, 184, 0.04);
+  border-bottom: 1px solid var(--border);
+
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.history-list {
+  max-height: 310px;
+  overflow-y: auto;
+}
+
+.history-row {
+  min-height: 62px;
+  padding: 0 16px;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.history-row:last-child {
+  border-bottom: 0;
+}
+
+.history-row .date-cell {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.history-row span {
+  text-align: center;
+}
+
+.history-header span:not(:first-child) {
+  text-align: center;
+}
+
+.history-row .bubble-value {
+  color: var(--mint);
+  font-weight: 700;
+}
+
+.empty-history {
+  padding: 35px 20px;
+  text-align: center;
+
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+/* ফুটার */
+
+footer {
+  padding: 8px 0 0;
+  text-align: center;
+
+  color: #475569;
+  font-size: 0.74rem;
+}
+
+/* রেসপনসিভ */
+
+@media (max-width: 900px) {
+  .bubble-grid {
+    grid-template-columns: repeat(8, minmax(24px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 22px, 680px);
+    padding-top: 18px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 22px;
+  }
+
+  .live-clock {
+    width: 100%;
+    text-align: left;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: 92px;
+  }
+
+  .panel {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .bubble-grid {
+    grid-template-columns: repeat(6, minmax(26px, 1fr));
+    gap: 12px;
+  }
+
+  .history-header,
+  .history-row {
+    grid-template-columns: 1.45fr 1fr 1fr 1fr;
+  }
+
+  .history-header,
+  .history-row {
+    padding: 0 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bubble-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 9px;
+  }
+
+  .bubble {
+    min-width: 0;
+  }
+
+  .timer-ring {
+    width: min(280px, 78vw);
+  }
+
+  .timer-display {
+    font-size: 3.7rem;
+  }
+
+  .timer-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .btn-primary {
+    grid-column: span 2;
+  }
+
+  .history-header,
+  .history-row {
+    font-size: 0.72rem;
+  }
+}
